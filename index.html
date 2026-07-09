@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Factilo — La facturation conforme, sans la compta</title>
+<meta name="description" content="Outil de facturation électronique pour freelances solo. Conforme à la réforme 2026-2027. 9 €/mois, sans logiciel de comptabilité." />
+
+<link rel="canonical" href="https://factilo.fr/" />
+
+<!-- Open Graph (LinkedIn, Slack, iMessage, Facebook…) -->
+<meta property="og:title" content="Factilo — La facturation conforme, sans la compta" />
+<meta property="og:description" content="Pour les freelances qui ont déjà un expert-comptable. Factures électroniques conformes 2026, 9 €/mois." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://factilo.fr/" />
+<meta property="og:site_name" content="Factilo" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:image" content="https://factilo.fr/images/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:alt" content="Factilo — la facturation électronique conforme à la réforme 2026, sans logiciel de comptabilité." />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Factilo — La facturation conforme, sans la compta" />
+<meta name="twitter:description" content="Factures électroniques conformes à la réforme 2026-2027, pour freelances. 9 €/mois, sans logiciel de compta." />
+<meta name="twitter:image" content="https://factilo.fr/images/og-image.png" />
+<meta name="twitter:image:alt" content="Factilo — la facturation électronique conforme à la réforme 2026." />
+
+<!-- Favicon : version simplifiée (sans anneau), lisible à 16 px -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23131b2e'/%3E%3Cpath d='M10.5 8V24M10.5 8H20M10.5 15.4H18' stroke='white' stroke-width='2.8' stroke-linecap='round'/%3E%3Cpath d='M16 19.5L19.5 23L27 12' stroke='%2300c97f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path class="ring" d="M28.95 14.87 A 13 13 0 1 1 25.19 6.81"
+              stroke-width="2.2" stroke-linecap="round" />
+        <path class="letter" d="M11.8 9 V 23 M11.8 9 H 20.5 M11.8 15.8 H 18.5"
+              stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+        <path class="check" d="M15 18.5 L 18.8 22.3 L 29.5 8.5"
+              stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <b>Factilo</b>
+    </a>
+    <nav class="head-nav" aria-label="Principal">
+      <a href="#produit">Le produit</a>
+      <a href="#chaine">La réforme</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <a class="btn btn-primary" href="#final">Être prévenu</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="strip">
+          <span class="pulse" aria-hidden="true"></span>
+          <span class="strip-text">Réception obligatoire pour toutes les entreprises</span>
+          <span class="strip-count num" id="countdown">1<sup>er</sup> septembre 2026</span>
+        </div>
+
+        <h1>La facturation conforme,<br><span class="accent">sans la compta.</span></h1>
+
+        <p class="lede">
+          Vous avez déjà un expert-comptable. Vous n'avez pas besoin d'un deuxième logiciel de comptabilité —
+          juste d'émettre et de recevoir des factures conformes à la réforme. C'est tout ce que fait Factilo.
+        </p>
+
+        <form class="capture" id="form-hero" novalidate>
+          <label class="sr-only" for="email-hero">Adresse e-mail</label>
+          <input class="field" type="email" id="email-hero" name="email" placeholder="vous@exemple.fr" required autocomplete="email" />
+          <!-- Honeypot anti-spam (masqué, ignoré par les humains) -->
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <button class="btn btn-primary" type="submit">Rejoindre la liste</button>
+        </form>
+        <p class="form-msg" id="msg-hero" role="status"></p>
+
+        <div class="capture-note">
+          <span><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Pas de carte bancaire</span>
+          <span><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Hébergé en France</span>
+          <span><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Un e-mail au lancement, pas plus</span>
+        </div>
+      </div>
+
+      <!-- SIGNATURE ELEMENT -->
+      <div class="doc">
+        <div class="doc-bar">
+          <span class="doc-label">Facture F-2026-042</span>
+          <div class="toggle" role="tablist" aria-label="Deux faces du même fichier">
+            <button type="button" role="tab" id="tab-pdf" aria-selected="true" aria-controls="face-pdf" tabindex="0">Ce que vous voyez</button>
+            <button type="button" role="tab" id="tab-xml" aria-selected="false" aria-controls="face-xml" tabindex="-1">Ce que le fisc lit</button>
+          </div>
+        </div>
+
+        <div class="doc-body">
+          <!-- PDF face -->
+          <div class="face" id="face-pdf" role="tabpanel" aria-labelledby="tab-pdf" tabindex="-1">
+            <div class="inv-head">
+              <div>
+                <div class="inv-title">Facture</div>
+                <div class="inv-ref">F-2026-042 · 8 juin 2026</div>
+              </div>
+              <div class="inv-from">
+                Studio Bonjour<br />
+                <span class="num">SIREN 903 214 557</span><br />
+                Nice, France
+              </div>
+            </div>
+
+            <div class="inv-parties">
+              <div>
+                <div class="k">Facturé à</div>
+                <div class="v">Acme Studio SAS</div>
+                <div class="s num">SIREN 812 345 678</div>
+              </div>
+              <div>
+                <div class="k">Catégorie d'opération</div>
+                <div class="v">Prestation de services</div>
+                <div class="s">Échéance : 8 juillet 2026</div>
+              </div>
+            </div>
+
+            <table class="lines">
+              <thead>
+                <tr><th scope="col">Description</th><th scope="col" class="r">Qté</th><th scope="col" class="r">PU HT</th><th scope="col" class="r">Total</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="desc">Développement application web</td>
+                  <td class="r num">12</td><td class="r num">500 €</td><td class="r amt num">6 000 €</td>
+                </tr>
+                <tr>
+                  <td class="desc">Maintenance corrective</td>
+                  <td class="r num">1</td><td class="r num">450 €</td><td class="r amt num">450 €</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="inv-total">
+              <dl>
+                <div class="row"><dt>Total HT</dt><dd class="num" style="margin:0">6 450 €</dd></div>
+                <div class="row mute"><dt>TVA non applicable, art. 293 B du CGI</dt><dd style="margin:0">—</dd></div>
+                <div class="row grand"><dt>Total à payer</dt><dd class="num">6 450,00 €</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <!-- XML face -->
+          <div class="face" id="face-xml" role="tabpanel" aria-labelledby="tab-xml" tabindex="-1" hidden>
+<pre class="xml"><span class="c">&lt;!-- XML CII intégré au PDF (Factur-X) --&gt;</span>
+<span class="t">&lt;ExchangedDocument&gt;</span>
+  <span class="t">&lt;ID&gt;</span><span class="v">F-2026-042</span><span class="t">&lt;/ID&gt;</span>
+  <span class="t">&lt;TypeCode&gt;</span><span class="v">380</span><span class="t">&lt;/TypeCode&gt;</span>
+  <span class="t">&lt;IssueDateTime&gt;</span><span class="v">20260608</span><span class="t">&lt;/IssueDateTime&gt;</span>
+<span class="t">&lt;/ExchangedDocument&gt;</span>
+
+<span class="t">&lt;SellerTradeParty&gt;</span>
+  <span class="t">&lt;Name&gt;</span><span class="v">Studio Bonjour</span><span class="t">&lt;/Name&gt;</span>
+  <span class="t">&lt;ID</span> <span class="a">schemeID</span>=<span class="v">"0002"</span><span class="t">&gt;</span><span class="v">903214557</span><span class="t">&lt;/ID&gt;</span>
+<span class="t">&lt;/SellerTradeParty&gt;</span>
+
+<span class="t">&lt;BuyerTradeParty&gt;</span>
+  <span class="t">&lt;Name&gt;</span><span class="v">Acme Studio SAS</span><span class="t">&lt;/Name&gt;</span>
+  <span class="t">&lt;ID</span> <span class="a">schemeID</span>=<span class="v">"0002"</span><span class="t">&gt;</span><span class="v">812345678</span><span class="t">&lt;/ID&gt;</span>
+<span class="t">&lt;/BuyerTradeParty&gt;</span>
+
+<span class="t">&lt;ApplicableTradeTax&gt;</span>
+  <span class="t">&lt;CategoryCode&gt;</span><span class="v">E</span><span class="t">&lt;/CategoryCode&gt;</span>
+  <span class="t">&lt;ExemptionReason&gt;</span><span class="v">Art. 293 B du CGI</span><span class="t">&lt;/ExemptionReason&gt;</span>
+<span class="t">&lt;/ApplicableTradeTax&gt;</span>
+
+<span class="t">&lt;GrandTotalAmount&gt;</span><span class="v">6450.00</span><span class="t">&lt;/GrandTotalAmount&gt;</span>
+</pre>
+          </div>
+        </div>
+
+        <div class="doc-foot">
+          <span class="badge-ok">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Factur-X
+          </span>
+          <span>Un seul fichier. Lisible par vous, lisible par l'administration.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT DOES / DOESN'T -->
+  <div class="band">
+    <section id="produit" class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Le produit</p>
+        <h2>Faire moins, exprès.</h2>
+        <p>La plupart des outils vous vendent la facturation avec la comptabilité, la banque et la paie. Vous payez 19 à 49 € par mois pour des fonctions que vous n'ouvrez jamais.</p>
+      </div>
+
+      <div class="split">
+        <div class="panel">
+          <h3>Ce que Factilo fait</h3>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--emerald)" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Créer des factures et devis au format Factur-X, conformes à la norme EN 16931</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--emerald)" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Émettre et recevoir vos factures électroniques via une plateforme agréée</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--emerald)" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Vérifier les mentions obligatoires avant l'envoi, sans que vous ayez à les connaître</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--emerald)" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Relancer vos impayés automatiquement, à J+7, J+15 et J+30</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--emerald)" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Archiver dix ans, avec preuve d'intégrité</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--emerald)" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Exporter tout ce dont votre comptable a besoin, une fois par an</li>
+          </ul>
+          <p class="why">Promesse : votre première facture conforme en moins de cinq minutes, sans jargon comptable.</p>
+        </div>
+
+        <div class="panel quiet">
+          <h3 style="color:var(--ink-soft)">Ce que Factilo ne fait pas</h3>
+          <ul>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--ink-mute)" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> De la comptabilité : pas de livre journal, pas de bilan, pas de FEC complet</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--ink-mute)" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> De la paie, des notes de frais, du rapprochement bancaire</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--ink-mute)" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Le travail de votre expert-comptable</li>
+            <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="color:var(--ink-mute)" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg> Des tableaux de bord dont vous ne ferez rien</li>
+          </ul>
+          <p class="why">Ce refus est la fonctionnalité. C'est lui qui permet de tenir 9 € par mois, et une interface qu'on comprend sans formation.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CHAIN -->
+  <section id="chaine" class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Comment ça marche</p>
+      <h2>Trois étages, et Factilo sait où il est.</h2>
+      <p>La réforme impose que vos factures transitent par une plateforme agréée par l'administration fiscale. Factilo ne prétend pas en être une : il s'y branche.</p>
+    </div>
+
+    <div class="chain">
+      <div class="link self">
+        <span class="tag">Factilo</span>
+        <div class="step">01</div>
+        <h3>Votre outil</h3>
+        <p>Vous écrivez la facture. Factilo la met au bon format, vérifie qu'elle est complète, et la confie à l'étage du dessous. C'est le seul écran que vous voyez.</p>
+      </div>
+      <div class="link">
+        <div class="step">02</div>
+        <h3>La plateforme agréée</h3>
+        <p>Immatriculée par la DGFiP, elle transmet la facture et déclare les données fiscales. Factilo s'appuie sur l'une d'elles, comme le font la plupart des logiciels de facturation.</p>
+      </div>
+      <div class="link">
+        <div class="step">03</div>
+        <h3>L'administration</h3>
+        <p>Le portail public reçoit les données, votre client reçoit la facture dans son propre outil. Vous n'avez rien à faire de plus.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATUS -->
+  <div class="band">
+    <section class="wrap">
+      <div class="status">
+        <div>
+          <p class="eyebrow">Où en est le produit</p>
+          <h2 style="margin-top:10px;font-size:28px">Factilo n'est pas encore ouvert.</h2>
+          <p>
+            L'éditeur de factures, la génération Factur-X, les devis et les relances fonctionnent aujourd'hui.
+            Le raccordement à une plateforme agréée est en cours : c'est ce qui permettra d'émettre et de recevoir
+            pour de vrai. Laissez votre e-mail, vous serez prévenu — et si vous êtes freelance, j'aimerais
+            beaucoup vous parler vingt minutes avant d'écrire la suite.
+          </p>
+        </div>
+        <ol class="steps">
+          <li class="done">Éditeur de factures et devis</li>
+          <li class="done">Génération Factur-X conforme</li>
+          <li class="done">Relances automatiques</li>
+          <li class="now">Raccordement plateforme agréée</li>
+          <li>Bêta privée</li>
+          <li>Ouverture publique</li>
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <!-- PRICING -->
+  <section id="tarifs" class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Tarifs</p>
+      <h2>Trois offres, pas de surprise.</h2>
+      <p>Tarifs prévisionnels au lancement. Sans engagement, résiliables en un clic.</p>
+    </div>
+
+    <div class="plans">
+      <div class="plan">
+        <div class="name">Découverte</div>
+        <div class="for">Pour recevoir vos factures, sans plus</div>
+        <div class="price"><b class="num">0</b><span>€ / mois</span></div>
+        <div class="save"></div>
+        <div class="cta"><a class="btn btn-ghost" href="#final">Être prévenu</a></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Réception illimitée</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Trois émissions par mois</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Format Factur-X conforme</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Mention « envoyé via Factilo »</li>
+        </ul>
+      </div>
+
+      <div class="plan feature">
+        <span class="flag">Le plus adapté</span>
+        <div class="name">Pro</div>
+        <div class="for">Pour facturer sans y penser</div>
+        <div class="price"><b class="num">9</b><span>€ / mois</span></div>
+        <div class="save num">89 € par an, soit deux mois offerts</div>
+        <div class="cta"><a class="btn btn-primary" href="#final">Être prévenu</a></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Émissions illimitées</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Relances automatiques</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Archivage dix ans inclus</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Aucune mention Factilo</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Paiement de la facture en ligne</li>
+        </ul>
+      </div>
+
+      <div class="plan">
+        <div class="name">Duo</div>
+        <div class="for">Pour travailler à deux</div>
+        <div class="price"><b class="num">19</b><span>€ / mois</span></div>
+        <div class="save"></div>
+        <div class="cta"><a class="btn btn-ghost" href="#final">Être prévenu</a></div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Tout de l'offre Pro</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Deux utilisateurs</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Accès expert-comptable</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Export par API</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Support prioritaire</li>
+        </ul>
+      </div>
+    </div>
+    <p class="plans-note">Les tarifs seront confirmés à l'ouverture. Les inscrits de la première heure garderont le prix de lancement.</p>
+  </section>
+
+  <!-- FAQ -->
+  <div class="band">
+    <section id="faq" class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Questions</p>
+        <h2>Ce qu'on vous demande le plus.</h2>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>Suis-je vraiment concerné par la réforme ?</summary>
+          <div class="a">Si vous êtes une entreprise française assujettie à la TVA, oui. À partir du 1<sup>er</sup> septembre 2026, vous devez pouvoir <em>recevoir</em> vos factures fournisseurs au format électronique. À partir du 1<sup>er</sup> septembre 2027, les TPE, micro-entreprises et auto-entrepreneurs devront aussi les <em>émettre</em> sous ce format. Plus de dix millions d'entreprises sont concernées.</div>
+        </details>
+        <details>
+          <summary>Factilo est-il une plateforme agréée ?</summary>
+          <div class="a">Non, et c'est volontaire. Factilo est un opérateur de dématérialisation : l'outil que vous utilisez au quotidien. La transmission légale de vos factures passe par une plateforme agréée partenaire, immatriculée par la DGFiP. C'est le fonctionnement de la grande majorité des logiciels de facturation du marché.</div>
+        </details>
+        <details>
+          <summary>J'ai déjà un expert-comptable. C'est un problème ?</summary>
+          <div class="a">C'est exactement le profil pour lequel Factilo est conçu. Vous gardez votre comptable pour la comptabilité, et Factilo ne s'occupe que des factures. Un export propre est prévu pour votre rendez-vous annuel.</div>
+        </details>
+        <details>
+          <summary>Et si je suis en franchise de TVA ?</summary>
+          <div class="a">Vous restez concerné par l'obligation de réception dès septembre 2026. Factilo gère la mention d'exonération (article 293 B du CGI) automatiquement, sans que vous ayez à la connaître ou à la saisir.</div>
+        </details>
+        <details>
+          <summary>Que devient ma facturation si Factilo ferme ?</summary>
+          <div class="a">Vos factures vous appartiennent. Elles sont téléchargeables à tout moment au format PDF et XML, et un export complet de vos données est disponible en un clic. L'archivage légal reste de votre responsabilité, Factilo le prend en charge pendant l'abonnement.</div>
+        </details>
+      </div>
+    </section>
+  </div>
+
+  <!-- FINAL CTA -->
+  <section class="wrap" style="padding-top:var(--s-xl);padding-bottom:0">
+    <div class="final" id="final">
+      <h2>Septembre 2026 arrive vite.</h2>
+      <p>Laissez votre e-mail. Vous recevrez un message quand Factilo ouvre, et rien d'autre.</p>
+
+      <form class="capture" id="form-final" novalidate>
+        <label class="sr-only" for="email-final">Adresse e-mail</label>
+        <input class="field" type="email" id="email-final" name="email" placeholder="vous@exemple.fr" required autocomplete="email" />
+        <!-- Honeypot anti-spam (masqué, ignoré par les humains) -->
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+        <button class="btn btn-primary" type="submit">Rejoindre la liste</button>
+      </form>
+      <p class="form-msg" id="msg-final" role="status"></p>
+
+      <div class="capture-note">
+        <span><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Désinscription en un clic</span>
+        <span><svg class="tick" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Aucune donnée revendue</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <p>Factilo — projet indépendant, développé en France.</p>
+    <nav class="foot-links" aria-label="Pied de page">
+      <a href="#produit">Le produit</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="mailto:xavier@factilo.fr">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

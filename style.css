@@ -135,7 +135,7 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero{padding:var(--s-xl) 0 var(--s-lg)}
+  .hero{padding-top:var(--s-xl);padding-bottom:var(--s-lg)}
   .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:var(--s-lg);align-items:start}
   @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:var(--s-md)}}
   .hero p.lede{margin:20px 0 32px;font-size:18px;line-height:1.6;color:var(--ink-soft);max-width:520px}
@@ -339,3 +339,9 @@
   .to-top.is-visible{opacity:1;visibility:visible;transform:none}
   .to-top svg{width:18px;height:18px}
   @media(max-width:520px){.to-top{right:16px;bottom:16px}}
+
+  /* ---------- Ajustements petits écrans ---------- */
+  @media(max-width:600px){
+    :root{--margin:20px}          /* gouttières plus fines sur téléphone */
+    .hero{padding-top:var(--s-lg)} /* moins de vide entre le header et le bandeau */
+  }

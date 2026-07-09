@@ -105,3 +105,20 @@
   }
   wireForm('form-hero', 'msg-hero', 'hero');
   wireForm('form-final', 'msg-final', 'final');
+
+  /* --- Bouton « remonter en haut » (apparaît après un défilement) --- */
+  (function () {
+    var btn = document.getElementById('to-top');
+    if (!btn) return;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function toggle() {
+      btn.classList.toggle('is-visible', window.scrollY > 600);
+    }
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+  })();

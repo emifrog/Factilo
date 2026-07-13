@@ -48,7 +48,7 @@
      L'inscription part vers l'app (autre domaine, d'où le CORS côté serveur) :
      elle est enregistrée en base, puis un email de confirmation est envoyé.
      Tant que l'utilisateur n'a pas cliqué le lien, il n'est PAS sur la liste. */
-  var WAITLIST_ENDPOINT = 'https://app.factilo.fr/api/waitlist';
+  var WAITLIST_ENDPOINT = 'https://factilo.vercel.app/api/waitlist';
 
   function wireForm(formId, msgId, source) {
     var form = document.getElementById(formId);

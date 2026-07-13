@@ -44,12 +44,11 @@
     });
   })();
 
-  /* --- Email capture (Web3Forms → xavier@factilo.fr) ---
-     1. Va sur https://web3forms.com, saisis xavier@factilo.fr : tu reçois une clé d'accès (gratuit).
-     2. Colle-la ci-dessous à la place de VOTRE_CLE_WEB3FORMS.
-     La clé est publique par conception (protection côté serveur + honeypot) ;
-     chaque inscription arrive dans ta boîte, aucune donnée chez un tiers marketing. */
-  var WEB3FORMS_KEY = 'f485a319-9ff6-4973-96d8-077eee4860ac';
+  /* --- Capture d'email → API Factilo (Supabase + double opt-in) ---
+     L'inscription part vers l'app (autre domaine, d'où le CORS côté serveur) :
+     elle est enregistrée en base, puis un email de confirmation est envoyé.
+     Tant que l'utilisateur n'a pas cliqué le lien, il n'est PAS sur la liste. */
+  var WAITLIST_ENDPOINT = 'https://app.factilo.fr/api/waitlist';
 
   function wireForm(formId, msgId, source) {
     var form = document.getElementById(formId);
@@ -74,28 +73,31 @@
       msg.style.color = '';
       msg.textContent = '';
 
-      fetch('https://api.web3forms.com/submit', {
+      fetch(WAITLIST_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
           email: value,
-          subject: 'Factilo — nouvelle inscription liste d’attente',
-          from_name: 'Landing Factilo',
           source: source,
           botcheck: !!(trap && trap.checked)
         })
       })
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          if (!data.success) throw new Error(data.message || 'error');
+        .then(function (r) {
+          return r.json().catch(function () { return {}; }).then(function (data) {
+            return { ok: r.ok && data.ok !== false, message: data.message };
+          });
+        })
+        .then(function (res) {
+          if (!res.ok) throw new Error(res.message || 'error');
           msg.style.color = '';
-          msg.textContent = 'Merci. Vous serez prévenu à l’ouverture.';
+          msg.textContent = 'Presque : cliquez le lien de confirmation dans votre boîte mail.';
           form.reset();
         })
-        .catch(function () {
+        .catch(function (err) {
           msg.style.color = '#ba1a1a';
-          msg.textContent = 'Oups — l’envoi a échoué. Réessayez, ou écrivez à xavier@factilo.fr.';
+          msg.textContent = err && err.message && err.message !== 'error'
+            ? err.message
+            : 'Oups — l’envoi a échoué. Réessayez, ou écrivez à xavier@factilo.fr.';
         })
         .finally(function () {
           btn.disabled = false;
@@ -105,6 +107,23 @@
   }
   wireForm('form-hero', 'msg-hero', 'hero');
   wireForm('form-final', 'msg-final', 'final');
+
+  /* --- Retour de confirmation double opt-in (?waitlist=confirme|erreur) --- */
+  (function () {
+    var status = new URLSearchParams(window.location.search).get('waitlist');
+    if (!status) return;
+
+    var banner = document.createElement('div');
+    banner.className = 'waitlist-banner' + (status === 'erreur' ? ' is-error' : '');
+    banner.setAttribute('role', 'status');
+    banner.textContent = status === 'confirme'
+      ? 'Inscription confirmée. Vous serez prévenu à l’ouverture.'
+      : 'Ce lien de confirmation est invalide ou expiré. Réinscrivez-vous ci-dessous.';
+    document.body.prepend(banner);
+
+    // L'URL ne doit pas garder le paramètre (rechargement, partage du lien).
+    history.replaceState(null, '', window.location.pathname);
+  })();
 
   /* --- Bouton « remonter en haut » (apparaît après un défilement) --- */
   (function () {

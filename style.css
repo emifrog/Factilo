@@ -327,6 +327,20 @@ p {
   min-height: 20px
 }
 
+/* Retour de confirmation double opt-in (?waitlist=…), injecté par main.js */
+.waitlist-banner {
+  padding: 12px 24px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--surface-white);
+  background: var(--emerald)
+}
+
+.waitlist-banner.is-error {
+  background: var(--danger)
+}
+
 /* ---------- Deadline strip ---------- */
 .strip {
   display: inline-flex;
